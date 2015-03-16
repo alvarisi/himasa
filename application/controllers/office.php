@@ -376,7 +376,7 @@ class Office extends CI_Controller {
 				if(is_uploaded_file($_FILES['gambar']['tmp_name']))
 				{
 
-					$config['upload_path'] = './content/berita/';
+					$config['upload_path'] = './content/thread/';
 					$config['allowed_types'] = 'gif|jpg|jpeg|png';
 					$this->load->helper('url');
 					$gambar=url_title($_FILES['gambar']['name']);
@@ -385,7 +385,7 @@ class Office extends CI_Controller {
 					$this->upload->initialize($config);
 					if ($this->upload->do_upload('gambar')) {
 					
-						$this->madmin->addThread($judul,$isi,$gambar);
+						$this->madmin->addThread($judul,$isi,$gambar,1);
 						$this->session->set_flashdata('suksesthread','Thread ditambahkan.');
 						redirect('office/newthread');
 					}
@@ -395,12 +395,12 @@ class Office extends CI_Controller {
 					}
 				}else{
 					$gambar = '';
-					$this->madmin->addThread($judul,$isi,$gambar);
+					$this->madmin->addThread($judul,$isi,$gambar,1);
 					$this->session->set_flashdata('suksesthread',"Thread berhasil ditambahkan.");
 					redirect('office/newthread');
 				}
 			}else{
-				$this->session->set_flashdata('gagalberita', validation_errors());
+				$this->session->set_flashdata('gagalthread', validation_errors());
 				redirect('office/newthread');
 			}
 		}
@@ -434,7 +434,7 @@ class Office extends CI_Controller {
 				if(is_uploaded_file($_FILES['gambar']['tmp_name']))
 				{
 
-					$config['upload_path'] = './content/berita/';
+					$config['upload_path'] = './content/user/';
 					$config['allowed_types'] = 'gif|jpg|jpeg|png';
 					$this->load->helper('url');
 					$gambar=url_title($_FILES['gambar']['name']);

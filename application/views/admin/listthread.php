@@ -41,6 +41,7 @@
 											<th>Isi Thread</th>
 											<th>Gambar</th>
 											<th>Waktu</th>
+											<th></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -53,7 +54,7 @@
 											<td class="col-md-2">
 												<?php if($row->gambarthread!="")
 												{ ?>
-												<img src="<?php echo base_url(); ?>content/thread/<?php echo $row->gambarthread; ?>" class="img-responsive img-thumbnail">
+													<img src="<?php echo base_url() ?>content/thread/<?php echo $row->gambarthread; ?>" class="img-responsive img-thumbnail" style="width:250px;">
 												<?php }else{ ?>
 													-
 												<?php } ?>
@@ -69,10 +70,10 @@
 													<div class="modal-content">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-															<h4 class="modal-title"><?php echo stripslashes($row->judulthread); ?></h4>
+															<h4 class="modal-title"><?php echo stripslashes($row->judulberita); ?></h4>
 														</div>
 														<div class="modal-body">
-															<?php echo stripslashes($row->isithread); ?>
+															<?php echo stripslashes($row->isiberita); ?>
 														</div>
 														<div class="modal-footer">
 															<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>

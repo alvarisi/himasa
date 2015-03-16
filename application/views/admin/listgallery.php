@@ -51,7 +51,7 @@
 											<td><?php echo substr($row->jenis,0,125); ?></td>
 											<td>
 												<?php if($row->jenis=="foto"){ $jenis = 'f';?>
-													<img src="<?php echo base_url() ?>content/gallery/<?php echo urlencode($row->foto); ?>" class="img-responsive img-thumbnail" style="width:250px;">
+													<img src="<?php echo base_url() ?>content/gallery/<?php echo $row->foto; ?>" class="img-responsive img-thumbnail" style="width:250px;">
 												<?php }else{ $jenis = 'v'; ?>
 													<a href="https:youtube<?php echo $row->link; ?>"><img src="<?php echo base_url() ?>content/gallery/<?php echo $row->foto; ?>" class="img-responsive img-thumbnail" ></a>
 												<?php } ?>

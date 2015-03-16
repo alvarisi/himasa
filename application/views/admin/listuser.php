@@ -42,6 +42,7 @@
 											<th>Username</th>
 											<th>Gambar</th>
 											<th>Status</th>
+											<th></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -54,7 +55,7 @@
 											<td class="col-md-2">
 												<?php if($row->gambar!="")
 												{ ?>
-												<img src="<?php echo base_url(); ?>content/berita/<?php echo $row->gambarberita; ?>" class="img-responsive img-thumbnail">
+												<img src="<?php echo base_url(); ?>content/user/<?php echo $row->gambar; ?>" class="img-responsive img-thumbnail">
 												<?php }else{ ?>
 													-
 												<?php } ?>

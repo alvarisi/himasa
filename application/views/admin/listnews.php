@@ -75,7 +75,7 @@
 											<td class="col-md-2">
 												<?php if($row->gambarberita!="")
 												{ ?>
-												<img src="<?php echo base_url(); ?>content/berita/<?php echo $row->gambarberita; ?>" class="img-responsive img-thumbnail">
+												<img src="<?php echo base_url(); ?>content/berita/<?php echo urlencode($row->gambarberita); ?>" class="img-responsive img-thumbnail">
 												<?php }else{ ?>
 													-
 												<?php } ?>
