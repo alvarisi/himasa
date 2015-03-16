@@ -49,9 +49,6 @@
 											<td><?php echo $no; ?></td>
 											<td><?php echo substr(stripslashes($row->judulthread),0,125); ?></td>
 											<td><?php echo substr(stripslashes($row->isithread),0,125); ?>
-											<div class="col-md-12">
-												<a data-toggle="modal" href="#berita<?php echo $no; ?>" class="btn btn-inverse btn-block">Hapus</a>
-											</div>
 											</td>
 											<td class="col-md-2">
 												<?php if($row->gambarthread!="")
@@ -61,6 +58,28 @@
 													-
 												<?php } ?>
 											<td><?php echo $row->waktuthread; ?></td>
+											<td>
+												<div class="col-md-12">
+													<a data-toggle="modal" href="#thread<?php echo $no; ?>" class="btn btn-inverse btn-block">Selengkapnya</a>
+												</div>
+											</td>
+											<!-- Modal dialog -->
+											<div class="modal fade" id="berita<?php echo $no++; ?>">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title"><?php echo stripslashes($row->judulthread); ?></h4>
+														</div>
+														<div class="modal-body">
+															<?php echo stripslashes($row->isithread); ?>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+														</div>
+													</div><!-- /.modal-content -->
+												</div><!-- /.modal-dialog -->
+											</div><!-- /.modal -->
 										</tr>
 										<?php } ?>
 									</tbody>

@@ -396,12 +396,12 @@ class Office extends CI_Controller {
 				}else{
 					$gambar = '';
 					$this->madmin->addThread($judul,$isi,$gambar);
-					$this->session->set_flashdata('suksesberita',"Berita berhasil ditambahkan.");
-					redirect('office/addnews');
+					$this->session->set_flashdata('suksesthread',"Thread berhasil ditambahkan.");
+					redirect('office/newthread');
 				}
 			}else{
 				$this->session->set_flashdata('gagalberita', validation_errors());
-				redirect('office/addnews');
+				redirect('office/newthread');
 			}
 		}
 		$this->load->view('admin/header');
@@ -414,6 +414,76 @@ class Office extends CI_Controller {
 		$data['threads'] = $this->madmin->getAllThread();
 		$this->load->view('admin/header');
 		$this->load->view('admin/listthread', $data);
+		$this->load->view('admin/footer');
+	}
+	function adduser()
+	{
+		if(!empty($_POST['nama']) || !empty($_POST['angkatan']) || !empty($_POST['username']) || !empty($_POST['password']))
+		{
+			
+			$this->form_validation->set_rules('nama','Nama','required');
+			$this->form_validation->set_rules('angkatan','Angkatan','required');
+			$this->form_validation->set_rules('username','Username','required');
+			$this->form_validation->set_rules('password','Angkatan','required');
+			if($this->form_validation->run())
+			{
+				$nama=addslashes($this->input->post('nama'));
+				$angkatan=addslashes($this->input->post('angkatan'));
+				$username=addslashes($this->input->post('username'));
+				$password=addslashes($this->input->post('password'));
+				if(is_uploaded_file($_FILES['gambar']['tmp_name']))
+				{
+
+					$config['upload_path'] = './content/berita/';
+					$config['allowed_types'] = 'gif|jpg|jpeg|png';
+					$this->load->helper('url');
+					$gambar=url_title($_FILES['gambar']['name']);
+					$config['file_name'] = $gambar;
+					$this->load->library('upload', $config);
+					$this->upload->initialize($config);
+					if ($this->upload->do_upload('gambar')) {
+					
+						$this->madmin->addUser($nama, $angkatan, $username, $password, $gambar);
+						$this->session->set_flashdata('suksesuser','User ditambahkan.');
+						redirect('office/adduser');
+					}
+					else{
+						$this->session->set_flashdata('gagalthread',$this->upload->display_errors());
+						redirect('office/adduser');
+					}
+				}else{
+					$gambar = '';
+					$this->madmin->addUser($nama, $angkatan, $username, $password, $gambar);
+					$this->session->set_flashdata('suksesuser',"User berhasil ditambahkan.");
+					redirect('office/adduser');
+				}
+			}else{
+				$this->session->set_flashdata('gagaluser', validation_errors());
+				redirect('office/adduser');
+			}
+		}
+		//else echo "asd";
+		$this->load->view('admin/header');
+		$this->load->view('admin/adduser');
+		$this->load->view('admin/footer');
+	}
+	function listuser()
+	{
+		$data['users'] = $this->madmin->getAllUser();
+		$this->load->view('admin/header');
+		$this->load->view('admin/listuser', $data);
+		$this->load->view('admin/footer');
+	}
+	function changeuserstatus($status, $iduser)
+	{
+		if($status == 0)
+			$status = 1;
+		else
+			$status = 0;
+		$this->madmin->changeuserstatus($status, $iduser);
+		$data['users'] = $this->madmin->getAllUser();
+		$this->load->view('admin/header');
+		$this->load->view('admin/listuser', $data);
 		$this->load->view('admin/footer');
 	}
 }

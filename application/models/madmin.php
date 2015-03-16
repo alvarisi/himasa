@@ -142,8 +142,20 @@ class Madmin extends CI_Model {
 	{
 
 	}
-	function editThread()
+	function addUser($nama, $angkatan, $username, $password, $gambar)
+	{
+		$this->db->query("insert into user values('', '$nama', '$angkatan', '$username', '$password', '$gambar', '1')");
+	}
+	function getAllUser()
+	{
+		return $this->db->query("select * from user order by iduser asc");
+	}
+	function getDataUser()
 	{
 
+	}
+	function changeUserStatus($status, $iduser)
+	{
+		$this->db->query("update user set enabled = '$status' where iduser = '$iduser'");
 	}
 }

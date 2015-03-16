@@ -286,15 +286,15 @@
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="<?php echo base_url(); ?>index.php/office/newthread">
+								<a href="<?php echo base_url(); ?>index.php/office/adduser">
 								<i class="icon-angle-right"></i>
 								Tambah User 
 								</a>
 							</li>
 							<li>
-								<a href="<?php echo base_url(); ?>index.php/office/listthread">
+								<a href="<?php echo base_url(); ?>index.php/office/listuser">
 								<i class="icon-angle-right"></i>
-								Ban/Unban User
+								Daftar User
 								</a>
 							</li>
 						</ul>
