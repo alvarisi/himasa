@@ -36,7 +36,7 @@
 								<table class="table table-striped table-bordered table-hover table-checkable datatable">
 									<thead>
 										<tr>
-											<th>No</th>
+											<th>Id User</th>
 											<th>Nama</th>
 											<th>Angkatan</th>
 											<th>Username</th>
@@ -47,7 +47,7 @@
 									<tbody>
 										<?php $no=1; foreach ($users->result() as $row) { ?>
 										<tr>
-											<td><?php echo $no; ?></td>
+											<td><?php echo substr(stripslashes($row->iduser),0,125); ?></td>
 											<td><?php echo substr(stripslashes($row->nama),0,125); ?></td>
 											<td><?php echo substr(stripslashes($row->angkatan),0,125); ?></td>
 											<td><?php echo substr(stripslashes($row->username),0,125); ?></td>
