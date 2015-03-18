@@ -58,14 +58,13 @@
 												<?php }else{ ?>
 													-
 												<?php } ?>
+											</td>
 											<td><?php echo $row->waktuthread; ?></td>
 											<td>
 												<div class="col-md-12">
 													<a data-toggle="modal" href="#thread<?php echo $no; ?>" class="btn btn-inverse btn-block">Selengkapnya</a>
 												</div>
-											</td>
-											<!-- Modal dialog -->
-											<div class="modal fade" id="thread<?php echo $no++; ?>">
+												<div class="modal fade" id="thread<?php echo $no++; ?>">
 												<div class="modal-dialog">
 													<div class="modal-content">
 														<div class="modal-header">
@@ -81,6 +80,9 @@
 													</div><!-- /.modal-content -->
 												</div><!-- /.modal-dialog -->
 											</div><!-- /.modal -->
+											</td>
+											<!-- Modal dialog -->
+											
 										</tr>
 										<?php } ?>
 									</tbody>
