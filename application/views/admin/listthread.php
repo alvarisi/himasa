@@ -65,7 +65,7 @@
 												</div>
 											</td>
 											<!-- Modal dialog -->
-											<div class="modal fade" id="berita<?php echo $no++; ?>">
+											<div class="modal fade" id="thread<?php echo $no++; ?>">
 												<div class="modal-dialog">
 													<div class="modal-content">
 														<div class="modal-header">
