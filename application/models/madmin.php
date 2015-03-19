@@ -142,9 +142,14 @@ class Madmin extends CI_Model {
 	{
 		return $this->db->query("select * from komenthread order by idkomen asc");
 	}
-	function deleteThread()
+	function deleteThread($idthread)
 	{
-
+		$this->db->query("delete from thread where idthread = '$idthread'");
+		$this->db->query("delete from komenthread where idthread = '$idthread'");
+	}
+	function deleteComment($idkomen)
+	{
+		$this->db->query("delete from komenthread where idkomen = '$idkomen'");
 	}
 	function addUser($nama, $angkatan, $username, $password, $gambar)
 	{

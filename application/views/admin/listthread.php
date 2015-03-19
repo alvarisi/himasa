@@ -63,6 +63,7 @@
 											</td>
 											<td><?php echo $row->waktuthread; ?></td>
 											<td>
+												<!-- BUTTON SELENGKAPNYA -->
 												<div class="col-md-12">
 													<a data-toggle="modal" href="#thread<?php echo $no; ?>" class="btn btn-inverse btn-block">Selengkapnya</a>
 												</div>
@@ -97,6 +98,7 @@
 																				<p>
 																					<?php echo $row2->isikomen; ?>
 																				</p>
+																				<a href="<?php echo base_url() ?>office/deleteComment/<?php echo $row2->idkomen; ?>" class="btn btn-danger btn-xs" >Hapus Komentar</a>
 																			</div>
 																		</div><?php
 																	}
@@ -104,6 +106,30 @@
 																?>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+															</div>
+														</div><!-- /.modal-content -->
+													</div><!-- /.modal-dialog -->
+												</div><!-- /.modal -->
+												<!-- BUTTON HAPUS THREAD -->
+												<br>
+												<div class="col-md-12">
+													<a data-toggle="modal" href="#deletethread<?php echo $no; ?>" class="btn btn-danger btn-block">Hapus</a>
+												</div>
+												<div class="modal fade" id="deletethread<?php echo $no++; ?>">
+													<div class="modal-dialog modal-lg">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																<h4 class="modal-title"><?php echo stripslashes($row->judulthread); ?></h4>
+															</div>
+															<div class="modal-body">
+																<?php echo "Apakah anda yakin akan menghapus thread ".stripslashes($row->judulthread); ?>
+															</div>
+															<div class="modal-footer">
+																<a href="<?php echo base_url() ?>office/deletethread/<?php echo $row->idthread; ?>">
+																	<button type="button" class="btn btn-danger" >Hapus</button>
+																</a>
+																<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
 															</div>
 														</div><!-- /.modal-content -->
 													</div><!-- /.modal-dialog -->

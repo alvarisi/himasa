@@ -418,6 +418,16 @@ class Office extends CI_Controller {
 		$this->load->view('admin/listthread', $data);
 		$this->load->view('admin/footer');
 	}
+	function deletethread($idthread)
+	{
+		$this->madmin->deleteThread($idthread);
+		$this->listthread();
+	}
+	function deleteComment($idkomen)
+	{
+		$this->madmin->deleteComment($idkomen);
+		$this->listthread();
+	}
 	function adduser()
 	{
 		if(!empty($_POST['nama']) || !empty($_POST['angkatan']) || !empty($_POST['username']) || !empty($_POST['password']))
