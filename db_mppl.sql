@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 16 Mar 2015 pada 14.17
+-- Waktu pembuatan: 19 Mar 2015 pada 02.11
 -- Versi Server: 5.5.34
 -- Versi PHP: 5.4.22
 
@@ -113,6 +113,7 @@ INSERT INTO `kategori` (`idkategori`, `namakategori`) VALUES
 
 CREATE TABLE IF NOT EXISTS `komenthread` (
   `idkomen` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
   `idthread` int(11) NOT NULL,
   `isikomen` text NOT NULL,
   `waktuthread` datetime NOT NULL
