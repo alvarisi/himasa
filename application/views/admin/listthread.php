@@ -37,6 +37,7 @@
 									<thead>
 										<tr>
 											<th>No</th>
+											<th>Id User</th>
 											<th>Judul Thread</th>
 											<th>Isi Thread</th>
 											<th>Gambar</th>
@@ -48,6 +49,7 @@
 										<?php $no=1; foreach ($threads->result() as $row) { ?>
 										<tr>
 											<td><?php echo $no; ?></td>
+											<td><?php echo substr(stripslashes($row->iduser),0,125); ?></td>
 											<td><?php echo substr(stripslashes($row->judulthread),0,125); ?></td>
 											<td><?php echo substr(stripslashes($row->isithread),0,125); ?>
 											</td>

@@ -136,7 +136,7 @@ class Madmin extends CI_Model {
 	}
 	function addThread($judul, $isi, $gambar, $pinned)
 	{
-		$this->db->query("insert into thread values('','$judul','$isi','$gambar',NOW(),$pinned)");
+		$this->db->query("insert into thread values('',-1,'$judul','$isi','$gambar',NOW(),$pinned)");
 	}
 	function deleteThread()
 	{
