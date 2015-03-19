@@ -55,7 +55,7 @@
 												<?php }else{ $jenis = 'v'; ?>
 													<a href="https:youtube<?php echo $row->link; ?>"><img src="<?php echo base_url() ?>content/gallery/<?php echo $row->foto; ?>" class="img-responsive img-thumbnail" ></a>
 												<?php } ?>
-											<td><!-- <a href="<?php echo base_url(); ?>index.php/office/editgallery/<?php echo $row->idgallery; ?>" class="icon-edit"></a>&nbsp;&nbsp; --> <a href="<?php echo base_url(); ?>index.php/office/deletegallery/<?php echo $row->idgallery; ?>-potong-<?php echo $row->foto; ?>" class="icon-remove"></a></td>
+											<td><!-- <a href="<?php echo base_url(); ?>index.php/office/editgallery/<?php echo $row->idgallery; ?>" class="icon-edit"></a>&nbsp;&nbsp; --> <a href="<?php echo base_url(); ?>index.php/office/deletegallery/<?php echo $row->idgallery; ?>-potong-<?php echo $row->foto; ?>" class="btn btn-danger">Hapus</a></td>
 										</tr>
 										<?php } ?>
 									</tbody>

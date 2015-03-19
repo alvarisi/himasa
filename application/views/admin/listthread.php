@@ -42,7 +42,7 @@
 											<th>Isi Thread</th>
 											<th>Gambar</th>
 											<th>Waktu</th>
-											<th></th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>

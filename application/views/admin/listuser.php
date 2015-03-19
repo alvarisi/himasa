@@ -42,7 +42,7 @@
 											<th>Username</th>
 											<th>Gambar</th>
 											<th>Status</th>
-											<th></th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
