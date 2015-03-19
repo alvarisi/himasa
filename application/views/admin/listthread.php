@@ -49,9 +49,9 @@
 										<?php $no=1; foreach ($threads->result() as $row) { ?>
 										<tr>
 											<td><?php echo $no; ?></td>
-											<td><?php echo substr(stripslashes($row->iduser),0,125); ?></td>
-											<td><?php echo substr(stripslashes($row->judulthread),0,125); ?></td>
-											<td><?php echo substr(stripslashes($row->isithread),0,125); ?>
+											<td><?php echo $row->iduser; ?></td>
+											<td><?php echo $row->judulthread; ?></td>
+											<td><?php echo $row->isithread; ?>
 											</td>
 											<td class="col-md-2">
 												<?php if($row->gambarthread!="")
@@ -67,24 +67,49 @@
 													<a data-toggle="modal" href="#thread<?php echo $no; ?>" class="btn btn-inverse btn-block">Selengkapnya</a>
 												</div>
 												<div class="modal fade" id="thread<?php echo $no++; ?>">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-header">
-															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-															<h4 class="modal-title"><?php echo stripslashes($row->judulthread); ?></h4>
-														</div>
-														<div class="modal-body">
-															<?php echo stripslashes($row->isithread); ?>
-														</div>
-														<div class="modal-footer">
-															<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-														</div>
-													</div><!-- /.modal-content -->
-												</div><!-- /.modal-dialog -->
-											</div><!-- /.modal -->
+													<div class="modal-dialog modal-lg">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																<h4 class="modal-title"><?php echo stripslashes($row->judulthread); ?></h4>
+															</div>
+															<div class="modal-body">
+																<?php echo stripslashes($row->isithread); ?>
+															</div>
+																<?php foreach ($comment->result() as $row2) {
+																	if($row2->idthread == $row->idthread) {?>														
+																		<div class="widget box">
+																			<?php
+																			foreach($user->result() as $row3){
+																				if($row3->iduser == $row2->iduser){?>
+																					<div class="widget-header">
+																						<span style="float:left;">
+																							<img src="<?php echo base_url() ?>content/user/<?php echo $row3->gambar; ?>" style="width:30px; heigth:30px;">
+																							<?php echo $row3->nama; ?>
+																						</span>
+																						<span style="float:right;">
+																							<?php echo $row2->waktuthread;?>
+																						</span>
+																					</div>
+																				<?php }	
+																			}?>
+																			<div class="widget-content">
+																				<p>
+																					<?php echo $row2->isikomen; ?>
+																				</p>
+																			</div>
+																		</div><?php
+																	}
+																}
+																?>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+															</div>
+														</div><!-- /.modal-content -->
+													</div><!-- /.modal-dialog -->
+												</div><!-- /.modal -->
 											</td>
 											<!-- Modal dialog -->
-											
 										</tr>
 										<?php } ?>
 									</tbody>

@@ -412,6 +412,8 @@ class Office extends CI_Controller {
 	function listthread()
 	{
 		$data['threads'] = $this->madmin->getAllThread();
+		$data['comment'] = $this->madmin->getAllComment();
+		$data['user'] = $this->madmin->getAllUser();
 		$this->load->view('admin/header');
 		$this->load->view('admin/listthread', $data);
 		$this->load->view('admin/footer');
@@ -431,6 +433,13 @@ class Office extends CI_Controller {
 				$angkatan=addslashes($this->input->post('angkatan'));
 				$username=addslashes($this->input->post('username'));
 				$password=addslashes($this->input->post('password'));
+				$users = $this->madmin->getAllUser()->result();
+				foreach($users as $row)
+					if($row->username = $username)
+					{
+						$this->session->set_flashdata('gagaluser', 'Username sudah ada');
+						redirect('office/adduser');
+					}
 				if(is_uploaded_file($_FILES['gambar']['tmp_name']))
 				{
 
@@ -444,11 +453,11 @@ class Office extends CI_Controller {
 					if ($this->upload->do_upload('gambar')) {
 					
 						$this->madmin->addUser($nama, $angkatan, $username, $password, $gambar);
-						$this->session->set_flashdata('suksesuser','User ditambahkan.');
+						$this->session->set_flashdata('suksesuser','User berhasil ditambahkan.');
 						redirect('office/adduser');
 					}
 					else{
-						$this->session->set_flashdata('gagalthread',$this->upload->display_errors());
+						$this->session->set_flashdata('gagaluser',$this->upload->display_errors());
 						redirect('office/adduser');
 					}
 				}else{

@@ -48,10 +48,10 @@
 									<tbody>
 										<?php $no=1; foreach ($users->result() as $row) { ?>
 										<tr>
-											<td><?php echo substr(stripslashes($row->iduser),0,125); ?></td>
-											<td><?php echo substr(stripslashes($row->nama),0,125); ?></td>
-											<td><?php echo substr(stripslashes($row->angkatan),0,125); ?></td>
-											<td><?php echo substr(stripslashes($row->username),0,125); ?></td>
+											<td><?php echo $row->iduser; ?></td>
+											<td><?php echo $row->nama; ?></td>
+											<td><?php echo $row->angkatan; ?></td>
+											<td><?php echo $row->username; ?></td>
 											<td class="col-md-2">
 												<?php if($row->gambar!="")
 												{ ?>
@@ -61,7 +61,7 @@
 												<?php } ?>
 											<td>
 												<?php 
-													if(substr(stripslashes($row->enabled),0,125) == 1)
+													if($row->enabled == 1)
 														echo "Aktif"; 
 													else
 														echo "Banned"; 

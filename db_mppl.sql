@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 19 Mar 2015 pada 02.50
+-- Waktu pembuatan: 19 Mar 2015 pada 05.36
 -- Versi Server: 5.5.34
 -- Versi PHP: 5.4.22
 
@@ -112,12 +112,21 @@ INSERT INTO `kategori` (`idkategori`, `namakategori`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `komenthread` (
-  `idkomen` int(11) NOT NULL,
+  `idkomen` int(11) NOT NULL AUTO_INCREMENT,
   `iduser` int(11) NOT NULL,
   `idthread` int(11) NOT NULL,
   `isikomen` text NOT NULL,
-  `waktuthread` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `waktuthread` datetime NOT NULL,
+  PRIMARY KEY (`idkomen`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data untuk tabel `komenthread`
+--
+
+INSERT INTO `komenthread` (`idkomen`, `iduser`, `idthread`, `isikomen`, `waktuthread`) VALUES
+(1, 1, 9, 'Ketika kawan mahasiswa dengan biaya UKT mahal tampak lusuh serba pas-pasan dan kawan mahasiswa bidik misi tampak glamour rajin ngehedon. ', '2015-03-19 00:00:00'),
+(2, 2, 9, 'Hati ini teriris-iris. Apa lagi melihat kawan mahasiswa yang masuk kuliah jalur undangan (mengandalkan nilai rapot, integritas sekolah, dan track record alumni) dibekali beasiswa bidik misi, justru kuliah bolos-bolosan tidak karuan. Semacam menutup mata terhadap perjuangan kawannya yang kena biaya UKT mahal karena masuk jalur mandiri (babak belur latihan dan belajar tes sana-sini), sebagai jalur akhir, yang bisa jadi untuk menempuh jalur itupun harus mengorbankan segala yang dimiliki. Kawan, rasanya tindakan seperti itu bak mendzalimi kawan mahasiswa yang lain, juga masyarakat Indonesia yang rajin bayar pajak. ', '2015-03-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -172,16 +181,22 @@ CREATE TABLE IF NOT EXISTS `thread` (
   `Pinned` tinyint(1) NOT NULL,
   PRIMARY KEY (`idthread`),
   UNIQUE KEY `idthread` (`idthread`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data untuk tabel `thread`
 --
 
 INSERT INTO `thread` (`idthread`, `iduser`, `judulthread`, `isithread`, `gambarthread`, `waktuthread`, `Pinned`) VALUES
-(1, 0, 'judul', 'isi thread', '11067768_968904349809395_5919183639235047022_n1.jpg', '2015-03-16 09:47:11', 1),
-(2, 0, 'tes2', 'cuman tes2', '', '2015-03-16 14:01:16', 1),
-(3, 0, 'asd', 'qwe', 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:00:34', 1);
+(1, -1, 'judul', 'isi thread', '11067768_968904349809395_5919183639235047022_n1.jpg', '2015-03-16 09:47:11', 1),
+(2, -1, 'tes2', 'cuman tes2', '', '2015-03-16 14:01:16', 1),
+(3, -1, 'asd', 'qwe', 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:00:34', 1),
+(4, -1, 'tes iduser di thread', 'id user di thread<br>admin = -1<br>user biasa = sesuai id usernya', 'index.jpg', '2015-03-19 08:54:48', 1),
+(5, -1, 'coba lagi', 'asdasddsad', '11073253_10206083300747378_967993247235580601_n.jpg', '2015-03-19 08:58:56', 1),
+(6, -1, 'coba gambar', '', '019575bf141743833560178078_700w_0.jpg', '2015-03-19 09:02:07', 1),
+(7, -1, 'asdasdasd', 'asdasdasd<img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasd', 'index.jpg', '2015-03-19 09:11:11', 1),
+(8, -1, 'adasdasdasd', 'asdasdasd<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasdads<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasd<br>asd\n', 'index.jpg', '2015-03-19 09:11:37', 1),
+(9, -1, 'duh', '\n<img alt="" src="http://assets22.pokemon.com/assets/cms2/img/pokedex/full/007.png"><br>\ncuk<br>\n<img alt="" src="http://assets.vg247.com/current//2013/10/Pokemon-Charizard_Official_Art_300dpi.jpg"><br>', 'MegaManX6_1.jpg', '2015-03-19 09:14:49', 1);
 
 -- --------------------------------------------------------
 
@@ -198,16 +213,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `gambar` varchar(255) NOT NULL,
   `enabled` tinyint(1) NOT NULL,
   PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`iduser`, `nama`, `angkatan`, `username`, `password`, `gambar`, `enabled`) VALUES
-(1, 'Fadrian', 2012, 'fadrianto', 'fadri12', '', 1),
-(2, 'Iqbal', 2012, 'iqbal', 'iqbalt', '', 1),
-(3, 'Dinar', 2012, 'dinar', 'dinar12', '', 1);
+(1, 'Fadrian', 2012, 'fadrianto', 'fadri12', 'gundam.jpg', 1),
+(2, 'Iqbal', 2012, 'iqbal', 'iqbalt', 'dummy.jpg', 1),
+(3, 'Dinar', 2012, 'dinar', 'dinar12', 'Koala.jpg', 1),
+(4, 'asd', 1212, 'asdasdasd', 'asdasdasd', 'index.jpg', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

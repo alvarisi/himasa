@@ -132,7 +132,7 @@
 			</ul>
 
 			<!-- Logo -->
-			<a class="navbar-brand" href="index.html">
+			<a class="navbar-brand" href="<?php echo base_url() ?>office">
 				
 				Administrator
 			</a>

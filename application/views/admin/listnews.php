@@ -49,8 +49,8 @@
 										<?php $no=1; foreach ($berita->result() as $row) { ?>
 										<tr>
 											<td><?php echo $no; ?></td>
-											<td><?php echo substr(stripslashes($row->judulberita),0,125); ?></td>
-											<td><?php echo substr(stripslashes($row->isiberita),0,125); ?>
+											<td><?php echo $row->judulberita; ?></td>
+											<td><?php echo $row->isiberita; ?>
 											<div class="col-md-12">
 												<a data-toggle="modal" href="#berita<?php echo $no; ?>" class="btn btn-inverse btn-block">Selengkapnya</a>
 											</div>
@@ -61,10 +61,10 @@
 													<div class="modal-content">
 														<div class="modal-header">
 															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-															<h4 class="modal-title"><?php echo stripslashes($row->judulberita); ?></h4>
+															<h4 class="modal-title"><?php echo $row->judulberita; ?></h4>
 														</div>
 														<div class="modal-body">
-															<?php echo stripslashes($row->isiberita); ?>
+															<?php echo $row->isiberita; ?>
 														</div>
 														<div class="modal-footer">
 															<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
