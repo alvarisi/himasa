@@ -10,7 +10,7 @@
         <meta name="format-detection" content="telephone=no">
 		
 		<!-- Judul -->
-		<title>Title</title>
+		<title>HIMASA Jember</title>
 		
 		<!-- Google Fonts -->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -49,7 +49,7 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll" style="text-align:center;">
 							<img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo" class="img-responsive">
 							<p>
-							alamat
+							HIMASA Jember	
 							</p>
 							
 						</div>

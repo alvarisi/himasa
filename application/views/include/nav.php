@@ -10,8 +10,8 @@
 						</div>
 						<!-- /Logo -->
 						<div class="col-lg-7 col-md-7 col-sm-7">
-							<h3>Nama Organisasi</h3>
-							<p>Alamat Organisasi
+							<h3>HIMASA Jember</h3>
+							<p>Himpunan Mahasiswa Surabaya asal Jember
 							</p>
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-3">
