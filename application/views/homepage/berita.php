@@ -23,16 +23,20 @@
 
 							<?php 
 							$news = $berita->result();
-							if(!isset($news) && $news != "")
+							if(isset($news) && $news != "")
 							{
 								foreach ($berita->result() as $row) { ?>
 								
 									<!-- Blog Post -->
 									<div class="blog-post animate-onscroll">
-																			<div class="post-image">
-																					<img src="<?php echo base_url(); ?>content/berita/<?php echo $row->gambarberita; ?>" alt="" class="img-responsive">
-																					<div class="media-hover">
+											<?php
+												if(isset($row->gambarberita) && $row->gambarberita!="")	{
+											?>
+											<div class="post-image">
+											<img src="<?php echo base_url(); ?>content/berita/<?php echo $row->gambarberita; ?>" alt="" class="img-responsive">
+											<div class="media-hover">
 											</div>
+											<?php } ?>
 										</div>
 																			
 										<div class="post-content">
