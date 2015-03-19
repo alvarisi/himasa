@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 19 Mar 2015 pada 02.11
+-- Waktu pembuatan: 19 Mar 2015 pada 02.50
 -- Versi Server: 5.5.34
 -- Versi PHP: 5.4.22
 
@@ -164,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `pesanmasuk` (
 
 CREATE TABLE IF NOT EXISTS `thread` (
   `idthread` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser` int(11) NOT NULL,
   `judulthread` varchar(255) NOT NULL,
   `isithread` text NOT NULL,
   `gambarthread` varchar(255) NOT NULL,
@@ -177,10 +178,10 @@ CREATE TABLE IF NOT EXISTS `thread` (
 -- Dumping data untuk tabel `thread`
 --
 
-INSERT INTO `thread` (`idthread`, `judulthread`, `isithread`, `gambarthread`, `waktuthread`, `Pinned`) VALUES
-(1, 'judul', 'isi thread', '11067768_968904349809395_5919183639235047022_n1.jpg', '2015-03-16 09:47:11', 1),
-(2, 'tes2', 'cuman tes2', '', '2015-03-16 14:01:16', 1),
-(3, 'asd', 'qwe', 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:00:34', 1);
+INSERT INTO `thread` (`idthread`, `iduser`, `judulthread`, `isithread`, `gambarthread`, `waktuthread`, `Pinned`) VALUES
+(1, 0, 'judul', 'isi thread', '11067768_968904349809395_5919183639235047022_n1.jpg', '2015-03-16 09:47:11', 1),
+(2, 0, 'tes2', 'cuman tes2', '', '2015-03-16 14:01:16', 1),
+(3, 0, 'asd', 'qwe', 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:00:34', 1);
 
 -- --------------------------------------------------------
 
