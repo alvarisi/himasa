@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 19 Mar 2015 pada 05.36
+-- Waktu pembuatan: 20 Mar 2015 pada 04.22
 -- Versi Server: 5.5.34
 -- Versi PHP: 5.4.22
 
@@ -77,14 +77,15 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `foto` varchar(255) NOT NULL,
   `waktu` date NOT NULL,
   PRIMARY KEY (`idgallery`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data untuk tabel `gallery`
 --
 
 INSERT INTO `gallery` (`idgallery`, `jenis`, `judul`, `link`, `foto`, `waktu`) VALUES
-(1, 'foto', 'gundam', '', '10988436_739776269473766_7484294162248070271_n.jpg', '2015-03-16');
+(1, 'foto', 'gundam', '', '10988436_739776269473766_7484294162248070271_n.jpg', '2015-03-16'),
+(2, 'foto', 'gundam keren', '', 'index.jpg', '2015-03-19');
 
 -- --------------------------------------------------------
 
@@ -118,15 +119,15 @@ CREATE TABLE IF NOT EXISTS `komenthread` (
   `isikomen` text NOT NULL,
   `waktuthread` datetime NOT NULL,
   PRIMARY KEY (`idkomen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data untuk tabel `komenthread`
 --
 
 INSERT INTO `komenthread` (`idkomen`, `iduser`, `idthread`, `isikomen`, `waktuthread`) VALUES
-(1, 1, 9, 'Ketika kawan mahasiswa dengan biaya UKT mahal tampak lusuh serba pas-pasan dan kawan mahasiswa bidik misi tampak glamour rajin ngehedon. ', '2015-03-19 00:00:00'),
-(2, 2, 9, 'Hati ini teriris-iris. Apa lagi melihat kawan mahasiswa yang masuk kuliah jalur undangan (mengandalkan nilai rapot, integritas sekolah, dan track record alumni) dibekali beasiswa bidik misi, justru kuliah bolos-bolosan tidak karuan. Semacam menutup mata terhadap perjuangan kawannya yang kena biaya UKT mahal karena masuk jalur mandiri (babak belur latihan dan belajar tes sana-sini), sebagai jalur akhir, yang bisa jadi untuk menempuh jalur itupun harus mengorbankan segala yang dimiliki. Kawan, rasanya tindakan seperti itu bak mendzalimi kawan mahasiswa yang lain, juga masyarakat Indonesia yang rajin bayar pajak. ', '2015-03-19 00:00:00');
+(1, 1, 2, 'KUPANG grin emoticon\r\nTeman-teman kupang tetap jadi hari ini, namun di undur dikarenakan banyak yang ada kelas [ex: RK, PAA2]\r\n\r\nWaktu & Tempat : Hari ini 19 Maret 2015 pkl 19.15 WIB di PB1 diadakan kupang smile emoticon\r\nTerima kasih', '2015-03-19 00:00:00'),
+(2, 2, 2, 'malas ah', '2015-03-20 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -139,6 +140,14 @@ CREATE TABLE IF NOT EXISTS `personalisasi` (
   `katadepan` varchar(300) NOT NULL,
   `rata` varchar(10) NOT NULL,
   `deskripsi` text NOT NULL,
+  `visi` text NOT NULL,
+  `misi` text NOT NULL,
+  `sambutan` text NOT NULL,
+  `sejarah` text NOT NULL,
+  `organigram` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `wallpaper` varchar(255) NOT NULL,
+  `kontak` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -146,8 +155,8 @@ CREATE TABLE IF NOT EXISTS `personalisasi` (
 -- Dumping data untuk tabel `personalisasi`
 --
 
-INSERT INTO `personalisasi` (`id`, `katadepan`, `rata`, `deskripsi`) VALUES
-(1, 'Tes', 'right', 'tes');
+INSERT INTO `personalisasi` (`id`, `katadepan`, `rata`, `deskripsi`, `visi`, `misi`, `sambutan`, `sejarah`, `organigram`, `logo`, `wallpaper`, `kontak`) VALUES
+(1, 'Tes', 'right', 'tes', '', '', '', '', 'megaman_x6_collage_by_gintoki333sakata-d5xn82i.jpg', 'MegaManX6_1.jpg', 'wallpaper.jpg', 'CP : Fadrian (0852323232)\r\nemail : himasa@gmail.com ');
 
 -- --------------------------------------------------------
 
@@ -163,7 +172,14 @@ CREATE TABLE IF NOT EXISTS `pesanmasuk` (
   `pesan` text NOT NULL,
   `waktu` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data untuk tabel `pesanmasuk`
+--
+
+INSERT INTO `pesanmasuk` (`id`, `nama`, `email`, `website`, `pesan`, `waktu`) VALUES
+(1, 'pablo', 'pentol@gmail.com', 'pentol.com', 'halo semua', '2015-03-20');
 
 -- --------------------------------------------------------
 
@@ -193,10 +209,8 @@ INSERT INTO `thread` (`idthread`, `iduser`, `judulthread`, `isithread`, `gambart
 (3, -1, 'asd', 'qwe', 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:00:34', 1),
 (4, -1, 'tes iduser di thread', 'id user di thread<br>admin = -1<br>user biasa = sesuai id usernya', 'index.jpg', '2015-03-19 08:54:48', 1),
 (5, -1, 'coba lagi', 'asdasddsad', '11073253_10206083300747378_967993247235580601_n.jpg', '2015-03-19 08:58:56', 1),
-(6, -1, 'coba gambar', '', '019575bf141743833560178078_700w_0.jpg', '2015-03-19 09:02:07', 1),
 (7, -1, 'asdasdasd', 'asdasdasd<img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasd', 'index.jpg', '2015-03-19 09:11:11', 1),
-(8, -1, 'adasdasdasd', 'asdasdasd<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasdads<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasd<br>asd\n', 'index.jpg', '2015-03-19 09:11:37', 1),
-(9, -1, 'duh', '\n<img alt="" src="http://assets22.pokemon.com/assets/cms2/img/pokedex/full/007.png"><br>\ncuk<br>\n<img alt="" src="http://assets.vg247.com/current//2013/10/Pokemon-Charizard_Official_Art_300dpi.jpg"><br>', 'MegaManX6_1.jpg', '2015-03-19 09:14:49', 1);
+(8, -1, 'adasdasdasd', 'asdasdasd<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasdads<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasd<br>asd\n', 'index.jpg', '2015-03-19 09:11:37', 1);
 
 -- --------------------------------------------------------
 

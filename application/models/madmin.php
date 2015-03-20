@@ -126,6 +126,24 @@ class Madmin extends CI_Model {
 		$this->db->where('id','1');
 		$this->db->update('personalisasi',$data);
 	}
+	function editProfile($logo, $sambutan, $visi, $misi, $sejarah, $organigram)
+	{
+		if($logo != '')
+			$l = ",logo='$logo'";
+		else
+			$l = '';
+		if($organigram != '')
+			$o = ",organigram='$organigram'";
+		$this->db->query("update personalisasi set
+			visi='$visi',
+			misi='$misi',
+			sambutan='$sambutan',
+			sejarah='$sejarah'".$o.$l);
+	}
+	function editContact($kontak)
+	{
+		$this->db->query("update personalisasi set kontak='$kontak'");
+	}
 	function getAllThread()
 	{
 		return $this->db->query("select * from thread order by waktuthread desc");

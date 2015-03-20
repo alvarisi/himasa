@@ -505,6 +505,75 @@ class Office extends CI_Controller {
 		$this->load->view('admin/listuser', $data);
 		$this->load->view('admin/footer');
 	}
+	function editprofile()
+	{
+		$organigram = '';
+		$logo = '';
+		if(is_uploaded_file($_FILES['logo']['tmp_name']))
+		{
+			$config['upload_path'] = './content/profil/';
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$this->load->helper('url');
+
+			if(is_uploaded_file($_FILES['logo']['tmp_name']))
+				$logo = url_title($_FILES['logo']['name']);
+			else
+				$logo = '';
+
+			$config['file_name'] = $logo;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			$this->upload->do_upload('logo');
+
+		}
+		if(is_uploaded_file($_FILES['organigram']['tmp_name']))
+		{
+			$config['upload_path'] = './content/profil/';
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$this->load->helper('url');
+			if(is_uploaded_file($_FILES['organigram']['tmp_name']))
+				$organigram = url_title($_FILES['organigram']['name']);
+			else
+				$organigram = '';
+			$config['file_name'] = $organigram;
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			$this->upload->do_upload('organigram');
+		}
+		echo "o-".$organigram."<br>";
+		echo "l-".$logo;
+		$sambutan = addslashes($this->input->post('sambutan'));
+		$visi = addslashes($this->input->post('visi'));
+		$misi = addslashes($this->input->post('misi'));
+		$sejarah = addslashes($this->input->post('sejarah'));
+
+		$this->madmin->editProfile($logo, $sambutan, $visi, $misi, $sejarah, $organigram);
+		$this->session->set_flashdata('sukses','Profil berhasil diubah.');
+		$this->profile();
+
+	}
+	function profile()
+	{
+		$data['front']=$this->madmin->getDataFront()->row();
+		$this->load->view('admin/header');
+		$this->load->view('admin/profile',$data);
+		$this->load->view('admin/footer');	
+	}
+	function editcontact()
+	{
+		$kontak = addslashes($this->input->post('kontak'));
+		$this->madmin->editContact($kontak);
+		$this->session->set_flashdata('sukses','Kontak berhasil diubah.');
+
+		$this->contact();
+	}
+	function contact()
+	{
+		$data['front'] = $this->madmin->getDataFront()->row();
+		$this->load->view('admin/header');
+		$this->load->view('admin/contact',$data);
+		$this->load->view('admin/footer');	
+	}
 }
 
 class Donatur 

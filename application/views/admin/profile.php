@@ -8,14 +8,14 @@
 							<a href="<?php echo base_url() ?>office">Dashboard</a>
 						</li>
 						<li class="current">
-							<a href="<?php echo base_url() ?>office/frontpage" title="">Tampilan Depan</a>
+							<a href="<?php echo base_url() ?>office/frontpage" title="">Profil</a>
 						</li>
 					</ul>
 				</div>
 				<!-- /Breadcrumbs line -->
 				<div class="page-header">
 					<div class="page-title">
-						<h3>Tampilan Depan</h3>
+						<h3>Profil</h3>
 						<span></span>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 					<div class="col-md-12">
 						<div class="widget box">
 							<div class="widget-header">
-								<h4><i class="icon-reorder"></i> Form Tampilan Depan</h4>
+								<h4><i class="icon-reorder"></i>Edit Profil</h4>
 							</div>
 							<div class="widget-content">
 								<?php if($this->session->flashdata('sukses')){ ?>
@@ -38,52 +38,54 @@
 									<?php echo $this->session->flashdata('gagal'); ?>
 								</div>
 								<?php } ?>
-								<form class="form-horizontal row-border" action="<?php echo base_url(); ?>index.php/office/submitfront" method="post" enctype="multipart/form-data">
-									<!-- <div class="form-group">
-										<label class="col-md-2 control-label">Select:</label>
-										<div class="col-md-10">
-											<div class="row">
-												<div class="col-md-6">
-													<select class="form-control" name="jenis" id="kategori">
-														<option selected disabled>Pilih jenis</option>
-														<option value="foto">Foto</option>
-														<option value="video">Video</option>
-													</select>
-												</div>
-											</div> 
-									</div>
-								</div> -->
+								<form class="form-horizontal row-border" action="<?php echo base_url(); ?>index.php/office/editprofile" method="post" enctype="multipart/form-data">
 								<div id="galery-input">
 									<div class="form-group">
-										<label class="col-md-2 control-label">Kalimat Depan :</label>
-										<div class="col-md-10"><input type="text" name="kalimatdepan" class="form-control" value="<?php echo stripslashes($front->katadepan); ?>"></div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-2 control-label">Rata Kalimat (Align) :</label>
+										<label class="col-md-2 control-label">Logo :</label>
 										<div class="col-md-10">
-											<select name="rata">
-												<option value="right" <?php if($front->rata=='right') echo "selected"; ?>>Kanan</option>
-												<option value="mid" <?php if($front->rata=='mid') echo "selected"; ?>>Tengah</option>
-												<option value="left" <?php if($front->rata=='left') echo "selected"; ?>>Kiri</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-2 control-label">Deskripsi Depan :</label>
-										<div class="col-md-10">
-											<textarea name="deskripsi" cols="5" rows="5" class="form-control"><?php echo stripslashes($front->deskripsi); ?></textarea>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-2 control-label">Foto Wallpaper Depan :</label>
-										<div class="col-md-10">
-											<input type="file" name="foto" data-style="fileinput">
+											<input type="file" name="logo" data-style="fileinput">
 											<span class="help-block"></span>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-lg-6 col-md-6 col-md-push-3 col-md-pull-3">
-											<img src="<?php echo base_url(); ?>content/profil/<?php echo $front->wallpaper?>" class="img-responsive">
+											<img src="<?php echo base_url(); ?>content/profil/<?php echo $front->logo?>" class="img-responsive">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Sambutan Ketua :</label>
+										<div class="col-md-10">
+											<textarea name="sambutan" cols="5" rows="5" class="form-control"><?php echo stripslashes($front->sambutan); ?></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Visi :</label>
+										<div class="col-md-10">
+											<textarea name="visi" cols="5" rows="5" class="form-control"><?php echo stripslashes($front->visi); ?></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Misi :</label>
+										<div class="col-md-10">
+											<textarea name="misi" cols="5" rows="5" class="form-control"><?php echo stripslashes($front->misi); ?></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Sejarah :</label>
+										<div class="col-md-10">
+											<textarea name="sejarah" cols="5" rows="5" class="form-control"><?php echo stripslashes($front->sejarah); ?></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-2 control-label">Organigram :</label>
+										<div class="col-md-10">
+											<input type="file" name="organigram" data-style="fileinput">
+											<span class="help-block"></span>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-lg-6 col-md-6 col-md-push-3 col-md-pull-3">
+											<img src="<?php echo base_url(); ?>content/profil/<?php echo $front->organigram?>" class="img-responsive">
 										</div>
 									</div>
 								</div>

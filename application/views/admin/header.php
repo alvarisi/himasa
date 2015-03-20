@@ -243,8 +243,12 @@
 							Personalisasi
 						</a>
 						<ul class="sub-menu">
-
-							
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/office/profile">
+								<i class="icon-angle-right"></i>
+								Profil
+								</a>
+							</li>
 							<li>
 								<a href="<?php echo base_url(); ?>index.php/office/frontpage">
 								<i class="icon-angle-right"></i>
@@ -253,8 +257,14 @@
 							</li>
 							<li>
 								<a href="<?php echo base_url(); ?>index.php/office/changepassword">
-									<i class="icon-angle-right"></i>
-									Ganti Password
+								<i class="icon-angle-right"></i>
+								Ganti Password
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url(); ?>index.php/office/contact">
+								<i class="icon-angle-right"></i>
+								Kontak
 								</a>
 							</li>
 						</ul>
