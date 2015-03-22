@@ -63,11 +63,7 @@
 							<a href="<?php echo base_url() ?>berita"><span>Berita</span></a>
 						</li>
 						<li >
-							<span>Kontak Kami</span>
-							<ul>
-								<li><a href="<?php echo base_url() ?>kontak-kami">Kontak Kami</a></li>
-								<li><a href="<?php echo base_url() ?>kritik-saran">Kritik dan Saran</a></li>
-							</ul>
+							<a href="<?php echo base_url() ?>kontak-kami"><span>Kontak Kami</span></a>
 						</li>
 						<li class="donate-button ">
 							<a href="<?php echo base_url() ?>Alumni">Alumni</a>

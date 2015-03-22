@@ -59,9 +59,10 @@ class Main extends CI_Controller {
 	function kontakkami()
 	{
 		$data['berita']=$this->madmin->getLatestNews('5');
-		$this->load->view('homepage/header');
-		$this->load->view('homepage/kontak-kami',$data);
-		$this->load->view('homepage/footer');		
+		
+		
+		$content = $this->load->view('homepage/kontak-kami',$data,true);
+		$this->render($content);
 	}
 	function addmessage()
 	{
@@ -77,10 +78,10 @@ class Main extends CI_Controller {
 
 			$this->madmin->addmessage(mysql_real_escape_string($this->input->post('nama')),$this->input->post('email'),mysql_real_escape_string($this->input->post('web')),mysql_real_escape_string($this->input->post('pesan')));
 			$this->session->set_flashdata('suksespesan', "Pesan Berhasil Terkirim");
-			redirect('main/kritiksaran');
+			redirect('main/kontakkami');
 		}else{
 			$this->session->set_flashdata('gagalpesan', validation_errors());
-			redirect('main/kritiksaran');
+			redirect('main/kontakkami');
 		}
 	}
 
@@ -154,5 +155,16 @@ class Main extends CI_Controller {
 		$content = $this->load->view('homepage/berita',$data,true);
 		$this->render($content);
 		
+	}
+	function blog($num=0)
+	{
+		if($num==0)
+			redirect('main/index');
+		$data['berita']=$this->madmin->getBerita($num);
+		$data['curr_idberita'] = $this->uri->segment(3);
+		$data['berita_terakhir']=$this->madmin->getLatestNews('5');
+		$content=$this->load->view('homepage/blog',$data,true);
+		$this->render($content);
+			
 	}
 }

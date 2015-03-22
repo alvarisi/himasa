@@ -105,13 +105,15 @@
 									<div class="blog-post animate-onscroll">
 										
 										<div class="post-image">
-											<img src="<?php
+											<?php
+											$gmb = base_url().'content/gambar_yayasan.jpg';
 											if($row->gambarberita!="")
 											{ 
-											 echo base_url(); ?>content/berita/<?php echo $row->gambarberita; ?>" alt="" class="img-responsive img-thumbnail">
-											<?php }else{
-												echo base_url(); ?>content/gambar_yayasan.jpg" alt="" class="img-responsive img-thumbnail">
-												<?php } ?>
+											 $gmb= base_url().'content/berita/'.$row->gambarberita; 
+											}
+											?>
+
+										<img src='<?php echo $gmb; ?>' width="150px;">
 										</div>
 										
 										<h4 class="post-title"><a href="<?php echo base_url() ?>main/blog/<?php echo $row->idberita; ?>"><?php echo substr($row->judulberita, 0,25)."...";?></a></h4>
