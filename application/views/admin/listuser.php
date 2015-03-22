@@ -55,7 +55,7 @@
 											<td class="col-md-2">
 												<?php if($row->gambar!="")
 												{ ?>
-												<img src="<?php echo base_url(); ?>content/user/<?php echo $row->gambar; ?>" class="img-responsive img-thumbnail">
+												<img src="<?php echo base_url(); ?>content/user/<?php echo $row->gambar; ?>" width="150px;">
 												<?php }else{ ?>
 													-
 												<?php } ?>
