@@ -51,17 +51,18 @@
 											<td><?php echo $no; ?></td>
 											<td><?php echo $row->iduser; ?></td>
 											<td><?php echo $row->judulthread; ?></td>
-											<td><?php echo $row->isithread; ?>
+											<td class="isi-thread"><?php echo $row->isithread; ?>
 											</td>
 											<td class="col-md-2">
 												<?php if($row->gambarthread!="")
 												{ ?>
-													<img src="<?php echo base_url() ?>content/thread/<?php echo $row->gambarthread; ?>" class="img-responsive img-thumbnail" style="width:250px;">
+													<img src="<?php echo base_url() ?>content/thread/<?php echo $row->gambarthread; ?>" class=""  width="150px;">
 												<?php }else{ ?>
 													-
 												<?php } ?>
 											</td>
-											<td><?php echo $row->waktuthread; ?></td>
+											<td><?php echo $row->waktuthread; ?>
+											</td>
 											<td>
 												<!-- BUTTON SELENGKAPNYA -->
 												<div class="col-md-12">

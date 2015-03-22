@@ -3309,3 +3309,9 @@ ul.stats li.light strong {
 .theme-dark #sidebar .notifications li a:hover {
   color: #eaebee;
 }
+.isi-thread img{
+  width: 150px;
+  float: left;
+  display: inline-block;
+  padding: 5px;
+}
