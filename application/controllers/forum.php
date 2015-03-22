@@ -1,8 +1,16 @@
 <?php
 
 class Forum extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		$this->load->model(array('mforum','malumni'));	
+		if($this->cekSessionUser())
+		{
+			$this->nav = '/include/nav-forum';
+		}
+	}
 	protected $layout = '/layout/home';
-	protected $nav = '/include/nav';
+	protected $nav = '/include/nav-forum';
 	protected $stylesheets = array(
 	    'colorbox.css',
 	    'bootstrap.min.css',
@@ -50,22 +58,90 @@ class Forum extends CI_Controller {
 		{
 
 			return true;
-		}else{
-			redirect('forum/login');
-			return false;
 		}
 	}
 	public function index()	
 	{
 		if($this->cekSessionUser())
 		{
-
+			$data['thread'] = $this->mforum->all();
+			$data['user']=$this->malumni->find($this->session->userdata('id'));
+			$content = $this->load->view('homepage/forum/thread',$data,true);
+			$this->render($content);
 		}
 	}
-	public function login()
+	public function create()
 	{
-		$data = array();
-		$content = $this->load->view('homepage/forum/login',$data,true);
-		$this->render($content);
+		if($this->cekSessionUser())
+		{
+			$data['user']=$this->malumni->find($this->session->userdata('id'));
+			$content = $this->load->view('homepage/forum/threadform',$data,true);
+			$this->render($content);
+		}	
 	}
+	public function store()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('judul','Judul','required|xss_clean');
+		$this->form_validation->set_rules('description','Deskripsi','required|xss_clean');
+		if($this->form_validation->run())
+		{
+			
+			$filename='';
+			if(is_uploaded_file($_FILES['file']['tmp_name']))
+			{
+
+				$config['upload_path'] = './content/thread/';
+				$config['allowed_types'] = 'gif|jpg|jpeg|png';
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				if ($this->upload->do_upload('file')) {
+					$gambar=$_FILES['file']['name'];
+					$filename=$gambar;
+				}
+			}
+			$data = array(
+				'judulthread' => $this->input->post('judul'),
+				'isithread' => $this->input->post('description'),
+				'gambarthread' => $filename,
+				'waktuthread' => date('Y-m-d H:i:s'),
+				'iduser' => $this->session->userdata('id'),
+			);
+			$this->mforum->insert($data);
+			$this->session->set_flashdata('suksesthread', "Thread berhasil ditambahkan.");
+		}else{
+			$this->session->set_flashdata('gagalthread', validation_errors());
+			
+		}
+		redirect('index.php/forum/create');
+	}
+	public function detail($id)
+	{
+		if($this->cekSessionUser())
+		{
+			$data['forum']=$this->mforum->find($id);
+			$data['dforum']=$this->mforum->findWithComment($id);
+			$content = $this->load->view('homepage/forum/threaddetail',$data,true);
+			$this->render($content);
+		}	
+	}
+	public function comment($id)
+	{
+		$kom = $this->input->post('description');
+		if(!empty($kom))
+		{
+			$data = 
+			array(
+				'iduser' => $this->session->userdata('id'),
+				'idthread' => $id,
+				'waktuthread' => date('Y-m-d H:i:s'),
+				'isikomen' => $kom
+			);
+			$this->mforum->insertComment($data);
+			$this->session->set_flashdata('suksesthread', "Komentar berhasil ditambahkan.");
+			
+		}
+		return redirect('index.php/forum/detail/'.$id);
+	}
+
 }

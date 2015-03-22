@@ -7939,3 +7939,12 @@ input.numeric-input:focus{
 	padding: 5px 10px;
 	border: solid 1px #E0E0E0;
 }
+ul.thread-list{
+	margin: 0px;
+	padding: 0px;
+}
+ul.thread-list li{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
