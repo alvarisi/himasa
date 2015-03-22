@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Inang: 127.0.0.1
--- Waktu pembuatan: 20 Mar 2015 pada 04.22
--- Versi Server: 5.5.34
--- Versi PHP: 5.4.22
+-- Host: 127.0.0.1
+-- Generation Time: Mar 22, 2015 at 07:36 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.5.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `db_mppl`
+-- Database: `db_mppl`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`username`, `password`, `level`) VALUES
@@ -42,21 +42,20 @@ INSERT INTO `admin` (`username`, `password`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE IF NOT EXISTS `berita` (
-  `idberita` int(11) NOT NULL AUTO_INCREMENT,
+`idberita` int(11) NOT NULL,
   `judulberita` varchar(255) NOT NULL,
   `isiberita` text NOT NULL,
   `kategoriberita` int(11) NOT NULL,
   `gambarberita` varchar(255) NOT NULL,
-  `waktuberita` datetime NOT NULL,
-  PRIMARY KEY (`idberita`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `waktuberita` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
 INSERT INTO `berita` (`idberita`, `judulberita`, `isiberita`, `kategoriberita`, `gambarberita`, `waktuberita`) VALUES
@@ -66,21 +65,20 @@ INSERT INTO `berita` (`idberita`, `judulberita`, `isiberita`, `kategoriberita`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gallery`
+-- Table structure for table `gallery`
 --
 
 CREATE TABLE IF NOT EXISTS `gallery` (
-  `idgallery` int(11) NOT NULL AUTO_INCREMENT,
+`idgallery` int(11) NOT NULL,
   `jenis` varchar(6) NOT NULL,
   `judul` varchar(200) NOT NULL,
   `link` varchar(200) NOT NULL,
   `foto` varchar(255) NOT NULL,
-  `waktu` date NOT NULL,
-  PRIMARY KEY (`idgallery`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `waktu` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gallery`
+-- Dumping data for table `gallery`
 --
 
 INSERT INTO `gallery` (`idgallery`, `jenis`, `judul`, `link`, `foto`, `waktu`) VALUES
@@ -90,17 +88,16 @@ INSERT INTO `gallery` (`idgallery`, `jenis`, `judul`, `link`, `foto`, `waktu`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
-  `idkategori` int(11) NOT NULL AUTO_INCREMENT,
-  `namakategori` varchar(40) NOT NULL,
-  PRIMARY KEY (`idkategori`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+`idkategori` int(11) NOT NULL,
+  `namakategori` varchar(40) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`idkategori`, `namakategori`) VALUES
@@ -109,20 +106,19 @@ INSERT INTO `kategori` (`idkategori`, `namakategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komenthread`
+-- Table structure for table `komenthread`
 --
 
 CREATE TABLE IF NOT EXISTS `komenthread` (
-  `idkomen` int(11) NOT NULL AUTO_INCREMENT,
+`idkomen` int(11) NOT NULL,
   `iduser` int(11) NOT NULL,
   `idthread` int(11) NOT NULL,
   `isikomen` text NOT NULL,
-  `waktuthread` datetime NOT NULL,
-  PRIMARY KEY (`idkomen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `waktuthread` datetime NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `komenthread`
+-- Dumping data for table `komenthread`
 --
 
 INSERT INTO `komenthread` (`idkomen`, `iduser`, `idthread`, `isikomen`, `waktuthread`) VALUES
@@ -132,11 +128,11 @@ INSERT INTO `komenthread` (`idkomen`, `iduser`, `idthread`, `isikomen`, `waktuth
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `personalisasi`
+-- Table structure for table `personalisasi`
 --
 
 CREATE TABLE IF NOT EXISTS `personalisasi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `katadepan` varchar(300) NOT NULL,
   `rata` varchar(10) NOT NULL,
   `deskripsi` text NOT NULL,
@@ -147,12 +143,11 @@ CREATE TABLE IF NOT EXISTS `personalisasi` (
   `organigram` varchar(255) NOT NULL,
   `logo` varchar(255) NOT NULL,
   `wallpaper` varchar(255) NOT NULL,
-  `kontak` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `kontak` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `personalisasi`
+-- Dumping data for table `personalisasi`
 --
 
 INSERT INTO `personalisasi` (`id`, `katadepan`, `rata`, `deskripsi`, `visi`, `misi`, `sambutan`, `sejarah`, `organigram`, `logo`, `wallpaper`, `kontak`) VALUES
@@ -161,21 +156,20 @@ INSERT INTO `personalisasi` (`id`, `katadepan`, `rata`, `deskripsi`, `visi`, `mi
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesanmasuk`
+-- Table structure for table `pesanmasuk`
 --
 
 CREATE TABLE IF NOT EXISTS `pesanmasuk` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+`id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `website` varchar(100) NOT NULL,
   `pesan` text NOT NULL,
-  `waktu` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `waktu` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pesanmasuk`
+-- Dumping data for table `pesanmasuk`
 --
 
 INSERT INTO `pesanmasuk` (`id`, `nama`, `email`, `website`, `pesan`, `waktu`) VALUES
@@ -184,23 +178,21 @@ INSERT INTO `pesanmasuk` (`id`, `nama`, `email`, `website`, `pesan`, `waktu`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `thread`
+-- Table structure for table `thread`
 --
 
 CREATE TABLE IF NOT EXISTS `thread` (
-  `idthread` int(11) NOT NULL AUTO_INCREMENT,
+`idthread` int(11) NOT NULL,
   `iduser` int(11) NOT NULL,
   `judulthread` varchar(255) NOT NULL,
   `isithread` text NOT NULL,
   `gambarthread` varchar(255) NOT NULL,
   `waktuthread` datetime NOT NULL,
-  `Pinned` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idthread`),
-  UNIQUE KEY `idthread` (`idthread`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+  `Pinned` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `thread`
+-- Dumping data for table `thread`
 --
 
 INSERT INTO `thread` (`idthread`, `iduser`, `judulthread`, `isithread`, `gambarthread`, `waktuthread`, `Pinned`) VALUES
@@ -215,30 +207,127 @@ INSERT INTO `thread` (`idthread`, `iduser`, `judulthread`, `isithread`, `gambart
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `iduser` int(11) NOT NULL AUTO_INCREMENT,
+`iduser` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `angkatan` int(4) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `enabled` tinyint(1) NOT NULL,
-  PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `enabled` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`iduser`, `nama`, `angkatan`, `username`, `password`, `gambar`, `enabled`) VALUES
-(1, 'Fadrian', 2012, 'fadrianto', 'fadri12', 'gundam.jpg', 1),
-(2, 'Iqbal', 2012, 'iqbal', 'iqbalt', 'dummy.jpg', 1),
-(3, 'Dinar', 2012, 'dinar', 'dinar12', 'Koala.jpg', 1),
-(4, 'asd', 1212, 'asdasdasd', 'asdasdasd', 'index.jpg', 1);
+INSERT INTO `user` (`iduser`, `nama`, `email`, `angkatan`, `username`, `password`, `gambar`, `enabled`) VALUES
+(1, 'Fadrian', '', 2012, 'fadrianto', 'fadri12', 'gundam.jpg', 1),
+(2, 'Iqbal', '', 2012, 'iqbal', 'iqbalt', 'dummy.jpg', 1),
+(3, 'Dinar', '', 2012, 'dinar', 'dinar12', 'Koala.jpg', 1),
+(4, 'asd', '', 1212, 'asdasdasd', 'asdasdasd', 'index.jpg', 1),
+(6, 'Bukan Fatahillah alvarisi', 'alvarisi01@gmail.com', 1994, 'alvarisi', 'zxcasd', '', 1);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+ ADD PRIMARY KEY (`idberita`);
+
+--
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+ ADD PRIMARY KEY (`idgallery`);
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+ ADD PRIMARY KEY (`idkategori`);
+
+--
+-- Indexes for table `komenthread`
+--
+ALTER TABLE `komenthread`
+ ADD PRIMARY KEY (`idkomen`);
+
+--
+-- Indexes for table `personalisasi`
+--
+ALTER TABLE `personalisasi`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pesanmasuk`
+--
+ALTER TABLE `pesanmasuk`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `thread`
+--
+ALTER TABLE `thread`
+ ADD PRIMARY KEY (`idthread`), ADD UNIQUE KEY `idthread` (`idthread`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+ ADD PRIMARY KEY (`iduser`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+MODIFY `idberita` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+MODIFY `idgallery` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `komenthread`
+--
+ALTER TABLE `komenthread`
+MODIFY `idkomen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `personalisasi`
+--
+ALTER TABLE `personalisasi`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `pesanmasuk`
+--
+ALTER TABLE `pesanmasuk`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `thread`
+--
+ALTER TABLE `thread`
+MODIFY `idthread` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
