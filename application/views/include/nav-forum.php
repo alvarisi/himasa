@@ -65,8 +65,14 @@
 						<li >
 							<a href="<?php echo base_url() ?>kontak-kami"><span>Kontak Kami</span></a>
 						</li>
+						<li class="thread-button ">
+							<a href="<?php echo base_url() ?>thread">Thread</a>
+						</li>
 						<li class="donate-button ">
-							<a href="<?php echo base_url() ?>alumni">Alumni</a>
+							<a href="<?php echo base_url() ?>alumni">Dashboard</a>
+						</li>
+						<li class="home-button">
+							<a href="<?php echo base_url() ?>index.php/alumni/logout"><i class="glyphicon glyphicon-log-out"></i></a>
 						</li>
 					</ul>
 					</div>

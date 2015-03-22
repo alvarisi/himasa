@@ -43,6 +43,7 @@ $route['kontak-kami'] = "main/kontakkami";
 $route['kritik-saran'] = "main/kritiksaran";
 $route['gallery'] = "main/gallery";
 $route['berita'] = "main/berita";
+$route['alumni'] = "alumni/index";
 $route['404_override'] = '';
 
 

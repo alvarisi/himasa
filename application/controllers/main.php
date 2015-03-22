@@ -4,6 +4,19 @@ class Main extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('madmin');	
+		if($this->cekSessionUser())
+		{
+			$this->nav = '/include/nav-forum';
+		}
+	}
+
+	private function cekSessionUser()
+	{
+		if($this->session->userdata('alumniIsLoggedIn'))
+		{
+
+			return true;
+		}
 	}
 	protected $layout = '/layout/home';
 	protected $nav = '/include/nav';
