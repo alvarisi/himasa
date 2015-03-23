@@ -50,11 +50,7 @@
 							<a href="<?php echo base_url() ?>"><i class="glyphicon glyphicon-home"></i></a>
 						</li>
 						<li >
-							<span>Profil</span>
-							<ul>
-								<li><a href="<?php echo base_url() ?>"></a></li>
-								
-							</ul>
+							<a href="<?php echo base_url() ?>profil"><span>Profil</span></a>
 						</li>
 						<li >
 							<a href="<?php echo base_url() ?>gallery"><span>Galeri</span></a>

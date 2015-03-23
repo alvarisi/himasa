@@ -44,6 +44,7 @@ $route['kritik-saran'] = "main/kritiksaran";
 $route['gallery'] = "main/gallery";
 $route['berita'] = "main/berita";
 $route['alumni'] = "alumni/index";
+$route['profil'] = "main/profil";
 $route['404_override'] = '';
 
 

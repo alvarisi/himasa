@@ -181,4 +181,12 @@ class Main extends CI_Controller {
 		$this->render($content);
 			
 	}
+	function profil()
+	{
+		$data = array();
+		$data['front'] = $this->madmin->getDataFront()->row();
+		$data['berita']=$this->madmin->getLatestNews('5');
+		$content=$this->load->view('homepage/profil',$data,true);
+		$this->render($content);
+	}
 }
