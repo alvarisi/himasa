@@ -28,6 +28,15 @@
 						
 							<div class="col-lg-12 col-md-12 col-sm-12">
 						
+								<h3 class="animate-onscroll no-margin-top">Kontak Kami</h3>
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12">
+										<?php 
+											echo $front->kontak;
+										?>
+									</div>
+								</div>
+								<br>
 								<h3 class="animate-onscroll no-margin-top">Form Kritik dan Saran</h3>								
 								<?php if($this->session->flashdata('gagalpesan') || $this->session->flashdata('suksespesan')){ ?>
 								<div class="animate-onscroll alert-box <?php if($this->session->flashdata('suksespesan')){ ?> success <?php } ?> <?php if($this->session->flashdata('gagalpesan')){ ?> error <?php } ?>">

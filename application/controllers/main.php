@@ -72,6 +72,7 @@ class Main extends CI_Controller {
 	function kontakkami()
 	{
 		$data['berita']=$this->madmin->getLatestNews('5');
+		$data['front'] = $this->madmin->getDataFront()->row();
 		
 		
 		$content = $this->load->view('homepage/kontak-kami',$data,true);
