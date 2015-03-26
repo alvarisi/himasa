@@ -6,7 +6,7 @@
 					<div class="row">
 						<!-- Logo -->
 						<div id="logo" class="col-lg-2 col-md-2 col-sm-2">
-							<a href=""><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo"></a>
+							<a href=""><img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo"width='80%' height='80%'></a>
 						</div>
 						<!-- /Logo -->
 						<div class="col-lg-7 col-md-7 col-sm-7">
