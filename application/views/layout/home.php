@@ -47,7 +47,7 @@
 					<div class="row">
 						
 						<div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll" style="text-align:center;">
-							<img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo" class="img-responsive">
+							<img src="<?php echo base_url() ?>assets/img/logo.png" alt="Logo" class="img-responsive" width='5%' height='5%'>
 							<p>
 							HIMASA Jember	
 							</p>
@@ -75,8 +75,8 @@
 							
 							<div class="social-media">
 								<ul class="social-icons">
-									<li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
-									<li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+									<li class="facebook"><a href="https://www.facebook.com/groups/503438189699809/?fref=ts" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+									<li class="twitter"><a href="https://twitter.com/metallio2015" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
 									<li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
 									<li class="youtube"><a href="#" class="tooltip-ontop" title="Youtube"><i class="icons icon-youtube-1"></i></a></li>
 									<li class="flickr"><a href="#" class="tooltip-ontop" title="Flickr"><i class="icons icon-flickr-4"></i></a></li>
