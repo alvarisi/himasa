@@ -134,6 +134,8 @@ class Madmin extends CI_Model {
 			$l = '';
 		if($organigram != '')
 			$o = ",organigram='$organigram'";
+		else
+			$o = '';
 		$this->db->query("update personalisasi set
 			visi='$visi',
 			misi='$misi',
