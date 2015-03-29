@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 22, 2015 at 07:36 AM
--- Server version: 5.6.21
--- PHP Version: 5.5.19
+-- Inang: 127.0.0.1
+-- Waktu pembuatan: 28 Mar 2015 pada 08.29
+-- Versi Server: 5.5.32
+-- Versi PHP: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `db_mppl`
+-- Basis data: `db_mppl`
 --
+CREATE DATABASE IF NOT EXISTS `db_mppl` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `db_mppl`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE IF NOT EXISTS `admin` (
@@ -33,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`username`, `password`, `level`) VALUES
@@ -42,97 +44,107 @@ INSERT INTO `admin` (`username`, `password`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berita`
+-- Struktur dari tabel `berita`
 --
 
 CREATE TABLE IF NOT EXISTS `berita` (
-`idberita` int(11) NOT NULL,
+  `idberita` int(11) NOT NULL AUTO_INCREMENT,
   `judulberita` varchar(255) NOT NULL,
   `isiberita` text NOT NULL,
   `kategoriberita` int(11) NOT NULL,
   `gambarberita` varchar(255) NOT NULL,
-  `waktuberita` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `waktuberita` datetime NOT NULL,
+  PRIMARY KEY (`idberita`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `berita`
+-- Dumping data untuk tabel `berita`
 --
 
 INSERT INTO `berita` (`idberita`, `judulberita`, `isiberita`, `kategoriberita`, `gambarberita`, `waktuberita`) VALUES
-(1, 'tes', 'cuman ngetes', 1, '11067768_968904349809395_5919183639235047022_n1.jpg', '2015-03-16 09:24:51'),
-(2, 'berita bergambar', 'gambarrr', 1, 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:03:25');
+(2, 'berita bergambar', 'gambarrr', 1, 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:03:25'),
+(3, 'Semangat baru HIMASA Jember dengan pengurus baru', 'HIMASA Jember akhirnya mempunyai pemimpin baru. Setelah Anam Arofi yang telah memimpin HIMASA seama 1 tahun lebih, akhirnya digantikan oleh Hairul Wasik. Pemilihan sendri dilakukan dengan sistem pemilu HIKARU. 2 orang yang mengajukan diri sebagai ketua umum HIMASA adalah Hairul Wasik dengan nomer urut 1, dan Panji Rimawan dengan nomer urut 2 &nbsp;Akhirnya Wasik lah yang menjadi pemenang dengan prosentase 52%.', 5, 'himasa.jpg', '2015-03-26 13:25:31'),
+(4, 'Hasil Try Out Metallio 2015', 'HIMASA kembali beraksi dengan membantu calon-calon mahasiswa terbaik asal Jember. Pada tanggal 25 Januari 2015 kemarin, HIMASA berhasil melaksanakan&nbsp;event terbesar mereka, yaitu METALLIO 2015. METALLIO 2015 sendiri diikuti oleh sekitar 600 siswa SMA/SMK-sederajat se-Kabupaten Jember. Try Out dan bedah kampus yang diadakan di SMAN 4 Jember ini bertujuan untuk membiasakan siswa dalam atmosfer SBMPTN nantinya. Try Out METALLIO sendiri diadakan dalam 2 kategori, yaitu IPA dan IPS. Hasil Try Out dapat dilihat di&nbsp;<a href=\\"https://drive.google.com/file/d/0B3qclqd5KpcfLXdJMmtNeWxaSk0/view\\" target=\\"\\" rel=\\"\\">https://drive.google.com/file/d/0B3qclqd5KpcfLXdJMmtNeWxaSk0/view</a>&nbsp;untuk kategori IPA dan&nbsp;<a href=\\"https://drive.google.com/file/d/0B3qclqd5KpcfLUY1cElJVlJNVmM/view\\" target=\\"\\" rel=\\"\\">https://drive.google.com/file/d/0B3qclqd5KpcfLUY1cElJVlJNVmM/view</a>&nbsp;untuk kategori IPS', 3, 'B8KVG2-CIAAtLtT.jpg', '2015-03-27 11:15:41'),
+(5, 'Jember Fashion Carnival, Pameran e Wong Jember', 'Siapa yang tidak kenal Jember Fashion Carnival?&nbsp;sebuah even karnaval busana yang setiap tahun digelar di&nbsp;<a href="http://id.wikipedia.org/wiki/Kabupaten_Jember" target="" rel="">Kabupaten Jember</a>,&nbsp;<a href="http://id.wikipedia.org/wiki/Jawa_Timur" target="" rel="">Jawa Timur</a>. Karnaval ini digagas oleh Dynand Fariz yang juga pendiri JFC Center.<a href="http://id.wikipedia.org/wiki/Jember_Fashion_Carnaval#cite_note-1" target="" rel="">[1]</a><span>Sebanyak 400 an peserta berkarnaval, ber<i>fashion run way</i>&nbsp;dan&nbsp;<i>dance</i>, di jalan utama kota Jember disaksikan oleh ratusan ribu penonton di kanan dan kiri jalan. Mereka terbagi dalam 8&nbsp;<i>defile</i>&nbsp;yang masing-masing defile mencerminkan tren busana pada tahun yang bersangkutan. Defile pertama adalah defile Archipelago yang mengangkat tema busana nasional dari daerah tertentu secara berkala seperti Jawa, Bali, madura, dayak, papua,Sumatera, dan seterusnya. Defile lainnya mengangkat tema fashion yang sedang trend apakah dari suatu negara, kelompok tertentu, film, kejadian atau peristiwa global lainnya. Semua busana dibuat dalam bentuk kostum yang kesemuanya dikompetisikan untuk meraih penghargaan-penghargaan.</span>Arena yang digunakan untuk menggelar JFC adalah jalan utama Kota Jember sepanjang 3,6 kilometer. So, tunggu apa lagi. Yuk datang di Jember Fashion Carnival, dari Jember, Oleh Jember, Untuk Indonesia :)', 4, 'jfc.jpg', '2015-03-28 10:01:05');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gallery`
+-- Struktur dari tabel `gallery`
 --
 
 CREATE TABLE IF NOT EXISTS `gallery` (
-`idgallery` int(11) NOT NULL,
+  `idgallery` int(11) NOT NULL AUTO_INCREMENT,
   `jenis` varchar(6) NOT NULL,
   `judul` varchar(200) NOT NULL,
   `link` varchar(200) NOT NULL,
   `foto` varchar(255) NOT NULL,
-  `waktu` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `waktu` date NOT NULL,
+  PRIMARY KEY (`idgallery`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `gallery`
+-- Dumping data untuk tabel `gallery`
 --
 
 INSERT INTO `gallery` (`idgallery`, `jenis`, `judul`, `link`, `foto`, `waktu`) VALUES
-(1, 'foto', 'gundam', '', '10988436_739776269473766_7484294162248070271_n.jpg', '2015-03-16'),
-(2, 'foto', 'gundam keren', '', 'index.jpg', '2015-03-19');
+(3, 'foto', 'Baksos 2013', '', '3.jpg', '2015-03-23'),
+(4, 'foto', 'Kumpul HIMASA', '', '1.jpg', '2015-03-23'),
+(5, 'foto', 'Metallio 2013', '', '7.jpg', '2015-03-23'),
+(6, 'foto', 'Metallio 2014', '', 'DSC_0130.jpg', '2015-03-23'),
+(7, 'foto', 'Jaket HIMASA', '', 'jaket-himasa2.jpg', '2015-03-23');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE IF NOT EXISTS `kategori` (
-`idkategori` int(11) NOT NULL,
-  `namakategori` varchar(40) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `idkategori` int(11) NOT NULL AUTO_INCREMENT,
+  `namakategori` varchar(40) NOT NULL,
+  PRIMARY KEY (`idkategori`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`idkategori`, `namakategori`) VALUES
-(1, 'tes saja');
+(3, 'Event'),
+(4, 'Khas Jember'),
+(5, 'News');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komenthread`
+-- Struktur dari tabel `komenthread`
 --
 
 CREATE TABLE IF NOT EXISTS `komenthread` (
-`idkomen` int(11) NOT NULL,
+  `idkomen` int(11) NOT NULL AUTO_INCREMENT,
   `iduser` int(11) NOT NULL,
   `idthread` int(11) NOT NULL,
   `isikomen` text NOT NULL,
-  `waktuthread` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `waktuthread` datetime NOT NULL,
+  PRIMARY KEY (`idkomen`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `komenthread`
+-- Dumping data untuk tabel `komenthread`
 --
 
 INSERT INTO `komenthread` (`idkomen`, `iduser`, `idthread`, `isikomen`, `waktuthread`) VALUES
-(1, 1, 2, 'KUPANG grin emoticon\r\nTeman-teman kupang tetap jadi hari ini, namun di undur dikarenakan banyak yang ada kelas [ex: RK, PAA2]\r\n\r\nWaktu & Tempat : Hari ini 19 Maret 2015 pkl 19.15 WIB di PB1 diadakan kupang smile emoticon\r\nTerima kasih', '2015-03-19 00:00:00'),
-(2, 2, 2, 'malas ah', '2015-03-20 00:00:00');
+(1, 13, 10, 'Salam kenal, saya Agus dari angkatan HIMASA 1996', '2015-03-28 03:01:25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personalisasi`
+-- Struktur dari tabel `personalisasi`
 --
 
 CREATE TABLE IF NOT EXISTS `personalisasi` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `katadepan` varchar(300) NOT NULL,
   `rata` varchar(10) NOT NULL,
   `deskripsi` text NOT NULL,
@@ -143,33 +155,35 @@ CREATE TABLE IF NOT EXISTS `personalisasi` (
   `organigram` varchar(255) NOT NULL,
   `logo` varchar(255) NOT NULL,
   `wallpaper` varchar(255) NOT NULL,
-  `kontak` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `kontak` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `personalisasi`
+-- Dumping data untuk tabel `personalisasi`
 --
 
 INSERT INTO `personalisasi` (`id`, `katadepan`, `rata`, `deskripsi`, `visi`, `misi`, `sambutan`, `sejarah`, `organigram`, `logo`, `wallpaper`, `kontak`) VALUES
-(1, 'Tes', 'right', 'tes', '', '', '', '', 'megaman_x6_collage_by_gintoki333sakata-d5xn82i.jpg', 'MegaManX6_1.jpg', 'wallpaper.jpg', 'CP : Fadrian (0852323232)\r\nemail : himasa@gmail.com ');
+(1, 'HIMASA Jember', 'right', 'SELAMAT DATANG DI WEBSITE HIMASA JEMBER', 'Visi', 'Misi', 'Sambutan', 'Sejarah', 'megaman_x6_collage_by_gintoki333sakata-d5xn82i.jpg', '1403066146331.jpg', 'wallpaper.jpg', 'CP : Fadrian (0852323232)\r\nemail : himasa@gmail.com ');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanmasuk`
+-- Struktur dari tabel `pesanmasuk`
 --
 
 CREATE TABLE IF NOT EXISTS `pesanmasuk` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `website` varchar(100) NOT NULL,
   `pesan` text NOT NULL,
-  `waktu` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `waktu` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `pesanmasuk`
+-- Dumping data untuk tabel `pesanmasuk`
 --
 
 INSERT INTO `pesanmasuk` (`id`, `nama`, `email`, `website`, `pesan`, `waktu`) VALUES
@@ -178,156 +192,54 @@ INSERT INTO `pesanmasuk` (`id`, `nama`, `email`, `website`, `pesan`, `waktu`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thread`
+-- Struktur dari tabel `thread`
 --
 
 CREATE TABLE IF NOT EXISTS `thread` (
-`idthread` int(11) NOT NULL,
+  `idthread` int(11) NOT NULL AUTO_INCREMENT,
   `iduser` int(11) NOT NULL,
   `judulthread` varchar(255) NOT NULL,
   `isithread` text NOT NULL,
   `gambarthread` varchar(255) NOT NULL,
   `waktuthread` datetime NOT NULL,
-  `Pinned` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `Pinned` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idthread`),
+  UNIQUE KEY `idthread` (`idthread`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `thread`
+-- Dumping data untuk tabel `thread`
 --
 
 INSERT INTO `thread` (`idthread`, `iduser`, `judulthread`, `isithread`, `gambarthread`, `waktuthread`, `Pinned`) VALUES
-(1, -1, 'judul', 'isi thread', '11067768_968904349809395_5919183639235047022_n1.jpg', '2015-03-16 09:47:11', 1),
-(2, -1, 'tes2', 'cuman tes2', '', '2015-03-16 14:01:16', 1),
-(3, -1, 'asd', 'qwe', 'photoshop-paint-color-pallete-logo-icon223.jpg', '2015-03-16 15:00:34', 1),
-(4, -1, 'tes iduser di thread', 'id user di thread<br>admin = -1<br>user biasa = sesuai id usernya', 'index.jpg', '2015-03-19 08:54:48', 1),
-(5, -1, 'coba lagi', 'asdasddsad', '11073253_10206083300747378_967993247235580601_n.jpg', '2015-03-19 08:58:56', 1),
-(7, -1, 'asdasdasd', 'asdasdasd<img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasd', 'index.jpg', '2015-03-19 09:11:11', 1),
-(8, -1, 'adasdasdasd', 'asdasdasd<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasdads<br><img alt="" src="http://image.jeuxvideo.com/medias/142547/1425468318-9108-card.jpg"><br>asdasdasd<br>asd\n', 'index.jpg', '2015-03-19 09:11:37', 1);
+(10, 12, 'Perkenalan', 'Forum ini buat perkenalan buat anggota baru maupun alumni, yaa :)\r\nMari menjaga HIMASA tetap jaya!!', '', '2015-03-27 07:08:06', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
-`iduser` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL AUTO_INCREMENT,
   `nama` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `angkatan` int(4) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `enabled` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`iduser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`iduser`, `nama`, `email`, `angkatan`, `username`, `password`, `gambar`, `enabled`) VALUES
-(1, 'Fadrian', '', 2012, 'fadrianto', 'fadri12', 'gundam.jpg', 1),
-(2, 'Iqbal', '', 2012, 'iqbal', 'iqbalt', 'dummy.jpg', 1),
-(3, 'Dinar', '', 2012, 'dinar', 'dinar12', 'Koala.jpg', 1),
-(4, 'asd', '', 1212, 'asdasdasd', 'asdasdasd', 'index.jpg', 1),
-(6, 'Bukan Fatahillah alvarisi', 'alvarisi01@gmail.com', 1994, 'alvarisi', 'zxcasd', '', 1);
+(12, 'Fadrian Merdianto', 'fadrimerdianto@gmail.com', 2012, 'fadrimerdianto', 'hehe', '', 1),
+(13, 'Agus Subiantoro', 'aguss@gmail.com', 1996, 'aguss', 'hehe', '', 1);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `berita`
---
-ALTER TABLE `berita`
- ADD PRIMARY KEY (`idberita`);
-
---
--- Indexes for table `gallery`
---
-ALTER TABLE `gallery`
- ADD PRIMARY KEY (`idgallery`);
-
---
--- Indexes for table `kategori`
---
-ALTER TABLE `kategori`
- ADD PRIMARY KEY (`idkategori`);
-
---
--- Indexes for table `komenthread`
---
-ALTER TABLE `komenthread`
- ADD PRIMARY KEY (`idkomen`);
-
---
--- Indexes for table `personalisasi`
---
-ALTER TABLE `personalisasi`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pesanmasuk`
---
-ALTER TABLE `pesanmasuk`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `thread`
---
-ALTER TABLE `thread`
- ADD PRIMARY KEY (`idthread`), ADD UNIQUE KEY `idthread` (`idthread`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`iduser`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `berita`
---
-ALTER TABLE `berita`
-MODIFY `idberita` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `gallery`
---
-ALTER TABLE `gallery`
-MODIFY `idgallery` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `kategori`
---
-ALTER TABLE `kategori`
-MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `komenthread`
---
-ALTER TABLE `komenthread`
-MODIFY `idkomen` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `personalisasi`
---
-ALTER TABLE `personalisasi`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `pesanmasuk`
---
-ALTER TABLE `pesanmasuk`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `thread`
---
-ALTER TABLE `thread`
-MODIFY `idthread` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
