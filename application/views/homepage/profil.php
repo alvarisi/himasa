@@ -2,8 +2,8 @@
 			
 			<section class="section page-heading animate-onscroll">
 				
-				<h1>Kontak Kami</h1>
-				<p class="breadcrumb"><a href="<?php echo base_url() ?>">Home</a> / Kontak Kami</p>
+				<h1>Profil</h1>
+				<p class="breadcrumb"><a href="<?php echo base_url() ?>">Home</a> / Profil</p>
 				
 			</section>
 			<!-- Page Heading -->
