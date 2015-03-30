@@ -463,7 +463,7 @@ h6.shortcodes-caption{
 	position:relative!important;
 }
 
-.newsletter-form .newsletter-submit .icons{
+.newsletter-form .newsletter-submit .icons,.newsletter-form .newsletter-submit .glyphicon{
 	display:block;
 	position:relative;
 	top:-35px;
@@ -486,6 +486,7 @@ h6.shortcodes-caption{
 }
 
 .newsletter-form .newsletter-submit:hover .icons,
+.newsletter-form .newsletter-submit:hover .glyphicon,
 .newsletter-form .newsletter-submit:hover input{
 	background:#059789;
 	border-top-color:#059789;

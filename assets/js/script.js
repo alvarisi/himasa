@@ -55,9 +55,9 @@ $(document).ready(function(){
 	
 	enableTooltips(); // Tooltips
 	
-	enableContentAnimation(); // Content Animation
+	//enableContentAnimation(); // Content Animation
 	
-	enableSpecialCssEffects(); // CSS Animations
+	//enableSpecialCssEffects(); // CSS Animations
 	
 	enableBackToTop(); // Back to top button
 	
