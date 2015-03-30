@@ -443,9 +443,10 @@ class Office extends CI_Controller {
 				$angkatan=addslashes($this->input->post('angkatan'));
 				$username=addslashes($this->input->post('username'));
 				$password=addslashes($this->input->post('password'));
+				$email=addslashes($this->input->post('email'));;
 				$users = $this->madmin->getAllUser()->result();
 				foreach($users as $row)
-					if($row->username = $username)
+					if($row->username == $username)
 					{
 						$this->session->set_flashdata('gagaluser', 'Username sudah ada');
 						redirect('office/adduser');
@@ -462,7 +463,7 @@ class Office extends CI_Controller {
 					$this->upload->initialize($config);
 					if ($this->upload->do_upload('gambar')) {
 					
-						$this->madmin->addUser($nama, $angkatan, $username, $password, $gambar);
+						$this->madmin->addUser($nama, $email, $angkatan, $username, $password, $gambar);
 						$this->session->set_flashdata('suksesuser','User berhasil ditambahkan.');
 						redirect('office/adduser');
 					}
@@ -472,7 +473,7 @@ class Office extends CI_Controller {
 					}
 				}else{
 					$gambar = '';
-					$this->madmin->addUser($nama, $angkatan, $username, $password, $gambar);
+					$this->madmin->addUser($nama, $email, $angkatan, $username, $password, $gambar);
 					$this->session->set_flashdata('suksesuser',"User berhasil ditambahkan.");
 					redirect('office/adduser');
 				}

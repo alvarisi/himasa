@@ -48,6 +48,10 @@
 										<div class="col-md-10"><input type="text" name="angkatan" class="form-control"></div>
 									</div>
 									<div class="form-group">
+										<label class="col-md-2 control-label">E-mail(**) :</label>
+										<div class="col-md-10"><input type="text" name="email" class="form-control"></div>
+									</div>
+									<div class="form-group">
 										<label class="col-md-2 control-label">Username(**) :</label>
 										<div class="col-md-10"><input type="text" name="username" class="form-control"></div>
 									</div>

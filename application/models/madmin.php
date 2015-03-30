@@ -171,9 +171,9 @@ class Madmin extends CI_Model {
 	{
 		$this->db->query("delete from komenthread where idkomen = '$idkomen'");
 	}
-	function addUser($nama, $angkatan, $username, $password, $gambar)
+	function addUser($nama, $email, $angkatan, $username, $password, $gambar)
 	{
-		$this->db->query("insert into user values('', '$nama', '$angkatan', '$username', '$password', '$gambar', '1')");
+		$this->db->query("insert into user values('', '$nama', '$email','$angkatan', '$username', '$password', '$gambar', '1')");
 	}
 	function getAllUser()
 	{
