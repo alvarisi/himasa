@@ -23,7 +23,7 @@
 									</div>
 									<div class="newsletter-submit">
 										<input type="submit" value="">
-										<i class="icons icon-search"></i>
+										<i class="glyphicon glyphicon-search"></i>
 									</div>
 								</div>
 							</form>
